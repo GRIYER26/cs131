@@ -1,0 +1,258 @@
+############################################################################################################
+
+
+Answer 1 
+
+[iyersu24@sjsu ~]$ mkdir ~/cs131/a1
+[iyersu24@sjsu ~]$ cd ~/cs131/a1/
+[iyersu24@sjsu a1]$ ls -l
+total 0
+ 
+############################################################################################################
+
+Answer 2
+by using command 
+cd 
+cd ~
+cd $HOME
+from any directory, it will take me back to my home directory
+and then I can use command pwd to know the exact filepath to my home directory
+
+[iyersu24@sjsu cs131]$ cd ~
+[iyersu24@sjsu ~]$ pwd
+/mnt/scratch/iyersu24
+[iyersu24@sjsu ~]$ cd cs131/
+[iyersu24@sjsu cs131]$ cd
+[iyersu24@sjsu ~]$ pwd
+/mnt/scratch/iyersu24
+[iyersu24@sjsu ~]$ cd cs131/
+[iyersu24@sjsu cs131]$ cd $HOME
+[iyersu24@sjsu ~]$ pwd
+/mnt/scratch/iyersu24
+
+The home directory is /mnt/scratch/iyersu24
+
+############################################################################################################
+
+Answer 3
+By using id command
+My uid is 1274
+I am in 1275 groups
+
+[iyersu24@sjsu a1]$ id
+uid=1274(iyersu24) gid=1275(iyersu24) groups=1275(iyersu24)
+
+############################################################################################################
+
+Answer 4
+
+[iyersu24@sjsu a1]$ ls /proc | grep 'meminfo'
+meminfo
+[iyersu24@sjsu a1]$ ls /proc | grep 'cpuinfo'
+cpuinfo
+
+############################################################################################################
+
+Answer 5
+
+[iyersu24@sjsu a1]$ cat /proc/meminfo | head
+MemTotal:       73080640 kB
+MemFree:        14986304 kB
+MemAvailable:   45820608 kB
+Buffers:          570560 kB
+Cached:         33102848 kB
+SwapCached:            0 kB
+Active:         15401280 kB
+Inactive:       21909504 kB
+Active(anon):    2490304 kB
+Inactive(anon):  4852480 kB
+
+Total Memory is  73080640 kB
+
+############################################################################################################
+
+Answer 6
+
+[iyersu24@sjsu a1]$ cat /proc/cpuinfo | head
+processor	: 0
+cpu		: POWER8 (architected), altivec supported
+clock		: 3425.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+processor	: 1
+cpu		: POWER8 (architected), altivec supported
+clock		: 3425.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+[iyersu24@sjsu a1]$ cat /proc/cpuinfo | tail
+processor	: 255
+cpu		: POWER8 (architected), altivec supported
+clock		: 3425.000000MHz
+revision	: 2.1 (pvr 004b 0201)
+
+timebase	: 512000000
+platform	: pSeries
+model		: IBM,8247-22L
+machine		: CHRP IBM,8247-22L
+MMU		: Hash
+
+Total Processors = 256
+POWER8 (architected), altivec supported
+3.425 GHz
+
+############################################################################################################
+
+Answer 7 
+
+[iyersu24@sjsu a1]$ ls /etc | grep os
+host.conf
+hostname
+hosts
+objrepos
+os-release
+sos
+yum.repos.d
+
+
+[iyersu24@sjsu a1]$ cd /etc/
+[iyersu24@sjsu etc]$ cd /etc/
+[iyersu24@sjsu etc]$ cat os-release 
+NAME="Red Hat Enterprise Linux"
+VERSION="8.6 (Ootpa)"
+ID="rhel"
+ID_LIKE="fedora"
+VERSION_ID="8.6"
+PLATFORM_ID="platform:el8"
+PRETTY_NAME="Red Hat Enterprise Linux 8.6 (Ootpa)"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:redhat:enterprise_linux:8::baseos"
+HOME_URL="https://www.redhat.com/"
+DOCUMENTATION_URL="https://access.redhat.com/documentation/red_hat_enterprise_linux/8/"
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+
+REDHAT_BUGZILLA_PRODUCT="Red Hat Enterprise Linux 8"
+REDHAT_BUGZILLA_PRODUCT_VERSION=8.6
+REDHAT_SUPPORT_PRODUCT="Red Hat Enterprise Linux"
+REDHAT_SUPPORT_PRODUCT_VERSION="8.6"
+
+NAME="Red Hat Enterprise Linux"
+VERSION="8.6 (Ootpa)"
+
+############################################################################################################
+
+
+Copying dataset 
+
+[iyersu24@sjsu a1]$ cp /datasets/taxidata.tar.gz .
+[iyersu24@sjsu a1]$ ls -l
+total 1674300
+-rw-rw-r-- 1 iyersu24 iyersu24       2543 Jun 17 04:18 a1.txt
+-rwxr-xr-x 1 iyersu24 iyersu24 1714477100 Jun 17 04:18 taxidata.tar.gz
+[iyersu24@sjsu a1]$ tar -xvzf taxidata.tar.gz 
+taxidata/
+taxidata/2019-08.csv
+taxidata/2019-09.csv
+taxidata/2019-10.csv
+taxidata/2019-04.csv
+taxidata/2019-05.csv
+taxidata/2019-11.csv
+taxidata/2019-07.csv
+taxidata/2019-12.csv
+taxidata/2019-06.csv
+taxidata/2019-02.csv
+taxidata/2019-03.csv
+taxidata/2019-01.csv
+[iyersu24@sjsu a1]$ ls -l
+total 1674308
+-rw-rw-r-- 1 iyersu24 iyersu24       2543 Jun 17 04:18 a1.txt
+drwxr-xr-x 2 iyersu24 iyersu24       4096 Jul 31  2023 taxidata
+-rwxr-xr-x 1 iyersu24 iyersu24 1714477100 Jun 17 04:18 taxidata.tar.gz
+[iyersu24@sjsu a1]$ cd taxidata/
+[iyersu24@sjsu taxidata]$ ls -l
+total 10420368
+-rw-r--r-- 1 iyersu24 iyersu24 954083054 Jul 31  2023 2019-01.csv
+-rw-r--r-- 1 iyersu24 iyersu24 888675836 Jul 31  2023 2019-02.csv
+-rw-r--r-- 1 iyersu24 iyersu24 991833345 Jul 31  2023 2019-03.csv
+-rw-r--r-- 1 iyersu24 iyersu24 941296938 Jul 31  2023 2019-04.csv
+-rw-r--r-- 1 iyersu24 iyersu24 958227465 Jul 31  2023 2019-05.csv
+-rw-r--r-- 1 iyersu24 iyersu24 879142625 Jul 31  2023 2019-06.csv
+-rw-r--r-- 1 iyersu24 iyersu24 798754174 Jul 31  2023 2019-07.csv
+-rw-r--r-- 1 iyersu24 iyersu24 768693189 Jul 31  2023 2019-08.csv
+-rw-r--r-- 1 iyersu24 iyersu24 831748095 Jul 31  2023 2019-09.csv
+-rw-r--r-- 1 iyersu24 iyersu24 913687534 Jul 31  2023 2019-10.csv
+-rw-r--r-- 1 iyersu24 iyersu24 871029249 Jul 31  2023 2019-11.csv
+-rw-r--r-- 1 iyersu24 iyersu24 873215849 Jul 31  2023 2019-12.csv
+
+############################################################################################################
+
+
+Examining the data
+
+[iyersu24@sjsu taxidata]$ cat 2019-05.csv | head
+vendorid,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distance,ratecodeid,store_and_fwd_flag,pulocationid,dolocationid,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount,congestion_surcharge
+1.0,"2019-05-01 00:14:50.000000","2019-05-01 00:16:48.000000",1.0,0.0,1.0,N,145.0,145.0,2.0,3.0,0.5,0.5,0.0,0.0,0.3,4.3,0.0
+1.0,"2019-05-01 00:35:54.000000","2019-05-01 00:37:27.000000",1.0,1.5,1.0,N,145.0,145.0,2.0,3.0,0.5,0.5,0.0,0.0,0.3,4.3,0.0
+1.0,"2019-05-01 00:37:45.000000","2019-05-01 00:37:49.000000",1.0,1.5,1.0,N,145.0,145.0,2.0,2.5,0.5,0.5,0.0,0.0,0.3,3.8,0.0
+1.0,"2019-05-01 00:44:57.000000","2019-05-01 00:50:11.000000",1.0,0.7,1.0,N,161.0,161.0,2.0,5.0,3.0,0.5,0.0,0.0,0.3,8.8,2.5
+1.0,"2019-05-01 00:59:48.000000","2019-05-01 01:10:22.000000",1.0,2.0,1.0,N,163.0,141.0,1.0,9.5,3.0,0.5,2.0,0.0,0.3,15.3,2.5
+2.0,"2019-05-01 00:48:04.000000","2019-05-01 00:49:00.000000",1.0,0.0,1.0,N,193.0,193.0,2.0,2.5,0.5,0.5,0.0,0.0,0.3,3.8,0.0
+2.0,"2019-05-01 00:05:26.000000","2019-05-01 00:05:34.000000",1.0,0.0,1.0,N,193.0,193.0,2.0,2.5,0.5,0.5,0.0,0.0,0.3,3.8,0.0
+1.0,"2019-05-01 00:23:20.000000","2019-05-01 00:32:57.000000",1.0,2.5,1.0,N,260.0,56.0,2.0,10.0,0.5,0.5,0.0,0.0,0.3,11.3,0.0
+1.0,"2019-05-01 00:35:54.000000","2019-05-01 00:47:49.000000",1.0,2.8,1.0,N,56.0,226.0,2.0,11.5,0.5,0.5,0.0,0.0,0.3,12.8,0.0
+
+############################################################################################################
+
+
+Answer 8
+
+[iyersu24@sjsu taxidata]$ grep '^[[:digit:]][.][[:digit:]][,]["]2019-05-12' 2019-05.csv | head 
+2.0,"2019-05-12 00:01:51.000000","2019-05-12 00:21:32.000000",5.0,2.94,1.0,N,79.0,25.0,1.0,14.0,0.5,0.5,2.67,0.0,0.3,20.47,2.5
+2.0,"2019-05-12 00:35:00.000000","2019-05-12 00:52:40.000000",6.0,2.89,1.0,N,144.0,80.0,1.0,15.0,0.5,0.5,3.76,0.0,0.3,22.56,2.5
+2.0,"2019-05-12 00:53:41.000000","2019-05-12 01:13:30.000000",6.0,5.74,1.0,N,256.0,162.0,1.0,20.0,0.5,0.5,4.76,0.0,0.3,28.56,2.5
+2.0,"2019-05-12 01:36:27.000000","2019-05-12 02:03:49.000000",6.0,5.67,1.0,N,158.0,263.0,1.0,21.5,0.5,0.5,5.06,0.0,0.3,30.36,2.5
+2.0,"2019-05-12 02:31:50.000000","2019-05-12 02:59:13.000000",6.0,10.5,1.0,N,114.0,243.0,1.0,31.5,0.5,0.5,1.0,0.0,0.3,36.3,2.5
+2.0,"2019-05-12 07:12:40.000000","2019-05-12 07:47:07.000000",6.0,17.41,2.0,N,230.0,132.0,1.0,52.0,0.0,0.5,11.06,0.0,0.3,66.36,2.5
+2.0,"2019-05-12 08:55:11.000000","2019-05-12 09:00:39.000000",6.0,1.13,1.0,N,90.0,164.0,1.0,6.0,0.5,0.5,1.0,0.0,0.3,10.8,2.5
+2.0,"2019-05-12 09:12:22.000000","2019-05-12 09:34:04.000000",5.0,7.14,1.0,N,164.0,33.0,2.0,23.0,0.5,0.5,0.0,0.0,0.3,26.8,2.5
+2.0,"2019-05-12 09:54:00.000000","2019-05-12 09:57:41.000000",6.0,0.48,1.0,N,234.0,107.0,1.0,4.5,0.5,0.5,1.0,0.0,0.3,9.3,2.5
+2.0,"2019-05-12 09:59:32.000000","2019-05-12 10:07:06.000000",5.0,0.67,1.0,N,137.0,170.0,1.0,6.5,0.5,0.5,1.54,0.0,0.3,11.84,2.5
+
+
+[iyersu24@sjsu taxidata]$ count=$(grep '^[[:digit:]][.][[:digit:]][,]["]2019-05-12' 2019-05.csv | wc -l)
+[iyersu24@sjsu taxidata]$ echo $count
+225367
+[iyersu24@sjsu taxidata]$ total=$(grep '^[[:digit:]][.][[:digit:]][,]["]2019-05-12' 2019-05.csv | cut -d ',' -f17 | paste -sd+ | bc)
+[iyersu24@sjsu taxidata]$ echo $total
+4187746.88
+[iyersu24@sjsu taxidata]$ echo "$total / $count" | bc -l
+18.58189921328322247711
+
+############################################################################################################
+
+
+Answer 9
+
+[iyersu24@sjsu taxidata]$ highest_total=$(grep '^[[:digit:]][.][[:digit:]][,]["]2019-05-12' 2019-05.csv | cut -d ',' -f17 | sort -nr | head -1)
+[iyersu24@sjsu taxidata]$ echo "The highest total amount paid by customers who were picked up on May 12th 2019 was $highest_total USD"
+The highest total amount paid by customers who were picked up on May 12th 2019 was 460.04 USD
+
+############################################################################################################
+
+
+Answer 10 
+
+[iyersu24@sjsu taxidata]$ cat 2019-05.csv | cut -d ',' -f4,9 | grep '^[3456789][.][[:digit:]][,]' | cut -d ',' -f 2 | sort -n | uniq -c | sort -nr | head -10
+  39909 236.0
+  37140 237.0
+  36990 161.0
+  33678 230.0
+  28506 170.0
+  27895 162.0
+  27485 48.0
+  26782 142.0
+  25051 239.0
+  24609 234.0
+
+############################################################################################################
+
+
