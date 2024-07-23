@@ -1,0 +1,14 @@
+BEGIN { 
+	FS=","	
+}
+
+{	
+	if($17>=10.0)
+	tip_amount[$14]++
+	 		
+}
+
+END { 	for (j in tip_amount)
+	print j, tip_amount[j]
+}
+
